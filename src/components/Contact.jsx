@@ -21,18 +21,18 @@ export default function Contact() {
   };
   const handleMouseLeave = () => { mouseX.set(0); mouseY.set(0); };
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    try {
-      const data = new URLSearchParams();
-      data.append("form-name", "contact");
-      Object.keys(formData).forEach((key) => data.append(key, formData[key]));
-      const response = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: data.toString() });
-      if (response.ok) { setSubmitStatus("success"); setFormData({ name: "", email: "", message: "" }); } else { setSubmitStatus("error"); }
-    } catch (error) { setSubmitStatus("error"); }
-    setIsSubmitting(false);
+    
+    // UI Demonstration: Simulate a network request delay
+    setTimeout(() => {
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+    }, 1000);
   };
 
   return (
@@ -91,10 +91,7 @@ export default function Contact() {
 
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:col-span-7 bg-white border border-black/5 rounded-3xl p-8 md:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.05)] relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50 rounded-full blur-[80px] pointer-events-none" />
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="flex flex-col gap-8 relative z-10">
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden"><label>Don&apos;t fill this out if you&apos;re human: <input name="bot-field" /></label></p>
-
+            <form onSubmit={handleSubmit} className="flex flex-col gap-8 relative z-10">
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="font-mono text-xs tracking-widest text-indigo-500 font-semibold uppercase">Your Name</label>
                 <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className="w-full bg-transparent border-b border-black/10 pb-4 pt-2 text-[#111] font-medium text-lg focus:outline-none focus:border-indigo-600 transition-colors placeholder:text-gray-300" placeholder="John Doe" />
