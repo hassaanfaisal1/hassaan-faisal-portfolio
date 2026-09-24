@@ -1,80 +1,151 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const experiences = [
   {
+    title: "Web Developer",
     company: "Systechlogics",
-    role: "Web Developer",
-    date: "Jun 2024 - Present",
-    description: "Develop and manage websites across WordPress, WooCommerce, Shopify, Wix and Squarespace. Work on custom WordPress functionality, plugins, WooCommerce features, APIs, payment integrations, referral and affiliate workflows, performance improvements and website troubleshooting.",
+    date: "Jun 2024 – Present",
+    location: "Karachi, Pakistan",
+    description: [
+      "Delivered custom WordPress plugin development and API integrations across WooCommerce, Shopify, and custom PHP backends.",
+      "Achieved 50+ successful client deployments with 99.2% uptime.",
+      "Improved website performance across CMS platforms resulting in a 35% reduction in page load time.",
+      "Built seamless third-party integrations across payment gateways and shipping providers."
+    ],
+    tags: ["WordPress", "Shopify", "PHP", "APIs", "Performance"]
   },
   {
+    title: "Web Developer",
     company: "Skyfit International",
-    role: "Web Developer",
-    date: "2023 - 2024",
-    description: "Developed responsive WordPress websites, customized themes and plugins, converted designs into responsive websites and worked on e-commerce, payment integrations, website security, speed and SEO improvements.",
+    date: "2023 – 2024",
+    location: "Karachi, Pakistan",
+    description: [
+      "Converted PSD/Figma designs to WordPress themes, launching 8 custom sites with pixel-perfect responsive layouts.",
+      "Optimized e-commerce platforms, achieving a 28% improvement in checkout completion rates.",
+      "Hardened website security with zero breaches across active client sites.",
+      "Drove a 19% increase in organic traffic by analyzing Google Analytics patterns and refining UX."
+    ],
+    tags: ["Frontend", "WooCommerce", "Security", "Analytics"]
   },
   {
+    title: "Property Assistant",
     company: "Falaknas Group",
-    role: "Property Assistant",
-    date: "2021 - 2023",
-    description: "Worked with clients, handled communication, product information and relationship management.",
+    date: "2021 – 2023",
+    location: "Karachi, Pakistan",
+    description: [
+      "Developed strong client relationship management and analytical skills.",
+      "Built foundational experience in process-oriented workflows, attention to detail, and communication."
+    ],
+    tags: ["Client Relations", "Analytics", "Workflows"]
   },
   {
-    company: "Online Mobile Sales",
-    role: "Sales Representative",
-    date: "2020 - 2021",
-    description: "Worked in online mobile sales, handling customer inquiries, product information, pricing, order coordination and communication with customers.",
+    title: "Online Mobile Sales Executive",
+    company: "Self-Employed",
+    date: "2020 – 2021",
+    location: "Karachi, Pakistan",
+    description: [
+      "Managed end-to-end online sales of mobile phones and accessories via social media and e-commerce.",
+      "Built lasting customer relationships by providing personalized product recommendations.",
+      "Handled inventory tracking, order fulfillment, and logistics coordination."
+    ],
+    tags: ["E-Commerce", "Sales", "Logistics"]
   }
 ];
 
-export default function Experience() {
+const ExperienceCard = ({ exp, index }) => {
   return (
-    <section id="experience" className="py-32 md:py-48 bg-black">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="mb-24 md:flex items-end justify-between border-b border-white/10 pb-12">
-          <h2 className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white">
-            Experience
-          </h2>
-          <p className="text-gray-400 max-w-sm mt-6 md:mt-0 font-light font-display text-lg">
-            My professional journey in web development and related roles over the years.
-          </p>
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-10%" }} transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="relative pl-8 md:pl-0"
+    >
+      <div className="md:grid md:grid-cols-12 md:gap-8 items-start group">
+        
+        {/* Timeline Marker (Desktop) */}
+        <div className="hidden md:flex col-span-3 flex-col items-end pt-2 relative">
+          <div className="font-mono text-sm tracking-widest text-indigo-500 font-bold">{exp.date}</div>
+          <div className="text-gray-400 text-xs mt-1 uppercase tracking-widest">{exp.location}</div>
+          {/* Node */}
+          <div className="absolute -right-[21px] top-3 w-4 h-4 rounded-full bg-white border-4 border-indigo-100 group-hover:border-indigo-500 transition-colors duration-300 z-10" />
         </div>
 
-        <div className="relative border-l border-white/10 pl-8 md:pl-16 ml-2 md:ml-0 space-y-24">
-          <div className="absolute top-0 bottom-0 left-[-1px] w-[2px] bg-gradient-to-b from-white via-white/10 to-transparent scale-y-0 origin-top" />
+        {/* Mobile Marker */}
+        <div className="md:hidden absolute left-0 top-2 w-3 h-3 rounded-full bg-white border-2 border-indigo-500 z-10 shadow-[0_0_10px_rgba(99,102,241,0.5)]" />
+
+        {/* Content Card */}
+        <div className="md:col-span-9 bg-white border border-black/5 rounded-3xl p-6 md:p-10 shadow-sm hover:shadow-xl transition-all duration-500 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50/50 rounded-full blur-3xl group-hover:bg-indigo-100/50 transition-colors pointer-events-none" />
           
-          {experiences.map((exp, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="relative group"
-            >
-              {/* Dot indicator */}
-              <div className="absolute w-4 h-4 bg-[#0a0a0a] border-2 border-white/30 rounded-full -left-[2.5rem] md:-left-[4.5rem] top-2 transition-all duration-500 group-hover:scale-125 group-hover:bg-white group-hover:border-white" />
-              
-              <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
-                <div className="md:col-span-4 flex flex-col mt-1">
-                  <span className="font-display text-5xl md:text-6xl font-bold text-white/20 group-hover:text-white transition-colors duration-500 tracking-tighter mb-2">
-                    {exp.date.split('-')[0].trim()}
-                  </span>
-                  <span className="text-xs font-mono uppercase tracking-[0.2em] text-gray-500">{exp.date}</span>
-                </div>
-                
-                <div className="md:col-span-8">
-                  <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-3 tracking-tight">{exp.company}</h3>
-                  <h4 className="text-xl text-gray-300 mb-6 font-medium font-display">{exp.role}</h4>
-                  <p className="text-gray-400 leading-relaxed font-light text-lg">
-                    {exp.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          <div className="md:hidden mb-4">
+            <div className="font-mono text-xs tracking-widest text-indigo-500 font-bold mb-1">{exp.date}</div>
+            <div className="text-gray-400 text-[10px] uppercase tracking-widest">{exp.location}</div>
+          </div>
+
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-[#111] mb-1">{exp.title}</h3>
+          <h4 className="font-mono text-sm uppercase tracking-widest text-gray-500 mb-6 font-semibold">{exp.company}</h4>
+          
+          <ul className="flex flex-col gap-3 mb-8">
+            {exp.description.map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-300 mt-2 shrink-0 group-hover:bg-indigo-500 transition-colors" />
+                <span className="text-gray-600 text-sm md:text-base leading-relaxed font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-wrap gap-2">
+            {exp.tags.map((tag, i) => (
+              <span key={i} className="font-mono text-[10px] text-gray-500 bg-gray-50 border border-black/5 px-3 py-1.5 rounded-full uppercase tracking-widest font-semibold group-hover:bg-indigo-50 group-hover:text-indigo-700 group-hover:border-indigo-100 transition-colors">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
+
+      </div>
+    </motion.div>
+  );
+};
+
+export default function Experience() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start center", "end center"] });
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <section id="experience" className="py-24 md:py-32 relative bg-transparent z-10">
+      <div className="container mx-auto px-6 md:px-12">
+        
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 md:mb-24 flex flex-col md:items-center md:text-center">
+          <div className="flex items-center gap-4 mb-6 md:justify-center">
+            <span className="w-12 h-px bg-indigo-200" />
+            <span className="font-mono text-sm tracking-widest uppercase text-indigo-600 font-semibold">Professional Journey</span>
+            <span className="w-12 h-px bg-indigo-200 hidden md:block" />
+          </div>
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-[#111]">
+            Experience.
+          </h2>
+        </motion.div>
+
+        <div className="max-w-5xl mx-auto relative" ref={containerRef}>
+          {/* Center Timeline Line (Desktop) */}
+          <div className="hidden md:block absolute left-[25%] top-0 bottom-0 w-px bg-black/5 -ml-px">
+            <motion.div style={{ scaleY, transformOrigin: "top" }} className="w-full h-full bg-gradient-to-b from-indigo-500 to-purple-500" />
+          </div>
+          
+          {/* Left Timeline Line (Mobile) */}
+          <div className="md:hidden absolute left-1.5 top-0 bottom-0 w-px bg-black/5">
+            <motion.div style={{ scaleY, transformOrigin: "top" }} className="w-full h-full bg-gradient-to-b from-indigo-500 to-purple-500" />
+          </div>
+
+          <div className="flex flex-col gap-12 md:gap-16 relative z-10">
+            {experiences.map((exp, i) => (
+              <ExperienceCard key={i} exp={exp} index={i} />
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

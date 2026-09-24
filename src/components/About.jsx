@@ -29,22 +29,30 @@ export default function About() {
               <span className="font-mono text-sm tracking-widest uppercase text-indigo-600 font-semibold">About Me</span>
             </motion.div>
 
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#111] leading-[1.1] tracking-tighter">
-              I blend technical precision with creative vision to build digital products that perform.
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-[#111] leading-[1.1] tracking-tighter">
+              Frontend Web Developer building high-performing digital solutions.
             </h2>
             
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed">
-              With extensive experience spanning WordPress, Shopify, and modern JavaScript frameworks, I approach every project not just as a coder, but as a digital architect.
+              With 3+ years of experience specializing in WordPress, Shopify, and custom PHP e-commerce solutions, I focus on responsive design, API integrations, and rigorous performance optimization.
             </motion.p>
             
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="grid grid-cols-2 gap-8 mt-4 pt-8 border-t border-black/5">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-4 pt-8 border-t border-black/5">
               <div>
-                <h4 className="font-display text-4xl md:text-5xl font-extrabold text-indigo-600 mb-2">3+</h4>
-                <p className="font-mono text-xs text-gray-500 uppercase tracking-widest font-semibold">Years Experience</p>
+                <h4 className="font-display text-3xl md:text-4xl font-bold text-indigo-600 mb-1">50+</h4>
+                <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Projects Delivered</p>
               </div>
               <div>
-                <h4 className="font-display text-4xl md:text-5xl font-extrabold text-indigo-600 mb-2">40+</h4>
-                <p className="font-mono text-xs text-gray-500 uppercase tracking-widest font-semibold">Projects Delivered</p>
+                <h4 className="font-display text-3xl md:text-4xl font-bold text-indigo-600 mb-1">3+</h4>
+                <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Years Experience</p>
+              </div>
+              <div>
+                <h4 className="font-display text-3xl md:text-4xl font-bold text-indigo-600 mb-1">35%</h4>
+                <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Avg Load Improvement</p>
+              </div>
+              <div>
+                <h4 className="font-display text-3xl md:text-4xl font-bold text-indigo-600 mb-1">99.2%</h4>
+                <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Uptime Maintained</p>
               </div>
             </motion.div>
           </div>

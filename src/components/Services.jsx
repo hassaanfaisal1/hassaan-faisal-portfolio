@@ -80,7 +80,7 @@ export default function Services() {
     { title: "WordPress Development", items: ["Custom Theme & Plugin Development", "Performance Optimization", "Advanced Custom Fields (ACF)", "WooCommerce Integration"] },
     { title: "Frontend Engineering", items: ["Modern React & Next.js Applications", "Interactive WebGL & Canvas", "Complex State Management", "Pixel-Perfect UI Implementation"] },
     { title: "E-Commerce Solutions", items: ["Custom Shopify Storefronts", "Liquid Theme Development", "Payment Gateway Integration", "Conversion Rate Optimization"] },
-    { title: "Custom Web Applications", items: ["Full-Stack Architecture", "API Design & Integration", "Database Modeling", "Scalable Cloud Deployment"] },
+    { title: "Custom Web Applications", items: ["Frontend Architecture", "API Design & Integration", "Headless CMS Integration", "API Debugging & Integration"] },
     { title: "Performance & SEO", items: ["Core Web Vitals Optimization", "Technical SEO Implementation", "Server-Side Rendering", "Asset Delivery Strategies"] }
   ];
 

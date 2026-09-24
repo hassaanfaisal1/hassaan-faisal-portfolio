@@ -88,7 +88,7 @@ export default function Hero() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const headlineLines = ["Hassaan Faisal", "Web Developer."];
+  const headlineLines = ["Hassaan Faisal", "Frontend Developer."];
 
   const tags = [
     { text: "WordPress", pos: { left: 10, top: 20, x: 0, y: 0 } },

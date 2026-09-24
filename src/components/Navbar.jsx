@@ -14,8 +14,8 @@ export default function Navbar() {
 
   const links = [
     { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
     { name: "Services", href: "#services" },
-    { name: "Workflow", href: "#workflow" },
     { name: "Work", href: "#work" },
     { name: "Contact", href: "#contact" }
   ];
@@ -35,6 +35,9 @@ export default function Navbar() {
               </a>
             ))}
           </div>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hidden md:block bg-[#111] text-white px-6 py-2.5 rounded-full font-mono text-xs uppercase tracking-widest font-bold hover:bg-indigo-600 transition-colors shadow-md">
+            Resume
+          </a>
           <button className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 z-50" onClick={() => setMenuOpen(!menuOpen)}>
             <span className={`w-6 h-px bg-[#111] transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
             <span className={`w-6 h-px bg-[#111] transition-all ${menuOpen ? "opacity-0" : ""}`} />
@@ -51,6 +54,9 @@ export default function Navbar() {
                   {link.name}
                 </motion.a>
               ))}
+              <motion.a href="/resume.pdf" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: links.length * 0.1 }} className="font-display text-4xl text-indigo-600 font-bold">
+                Resume
+              </motion.a>
             </div>
           </motion.div>
         )}
