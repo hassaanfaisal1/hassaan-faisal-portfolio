@@ -131,7 +131,7 @@ export default function Hero() {
           <span className="font-mono text-xs md:text-sm tracking-[0.2em] text-gray-500 uppercase font-semibold">Available for new projects</span>
         </motion.div>
 
-        <motion.h1 style={{ x: smoothX, y: smoothY, willChange: "transform" }} className="font-display text-5xl sm:text-7xl md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter text-[#111] leading-[0.95] flex flex-col gap-2 relative z-30">
+        <motion.h1 style={{ x: smoothX, y: smoothY, willChange: "transform" }} className="font-display text-5xl sm:text-7xl md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter text-[#111] leading-[0.95] flex flex-col items-center justify-center w-full gap-2 text-center relative z-30">
           {headlineLines.map((line, i) => (
             <span key={i} className="block overflow-hidden pb-4 px-4">
               <motion.span initial={{ y: "100%", rotate: 2 }} animate={{ y: 0, rotate: 0 }} transition={{ duration: 1, delay: 0.1 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }} className="block">
